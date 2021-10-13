@@ -10,6 +10,9 @@
 # Once the commands have been run, you can build the image using `yarn build-image`
 
 FROM node:14-buster-slim
+COPY bash-scripts/install-deps-backstage.sh .
+RUN chmod +x install-deps-backstage.sh && sh install-deps-backstage.sh
+# RUN apt-get update && apt-get -y install python3 cmake g++
 
 WORKDIR /app
 
